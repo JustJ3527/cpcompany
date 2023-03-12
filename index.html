@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link href="./CSS/style.css" rel="stylesheet" type="text/css">
+    <script src="./JS/script.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link rel="icon" type="image/png" href="./assets/CPCompany-logo.png">
     <title>C.P. Company</title>
@@ -45,34 +46,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function(){
-            $(document).mousemove(function(){
-                if($("#img-1:hover").length != 0){
-                    document.getElementById("img-1").style.filter = "grayscale(0)";
-                    document.getElementById("img-2").style.filter = "grayscale(1)";
-                    document.getElementById("img-3").style.filter = "grayscale(1)";
-                }else{
-                    if($("#img-2:hover").length != 0){
-                    document.getElementById("img-1").style.filter = "grayscale(1)";
-                    document.getElementById("img-2").style.filter = "grayscale(0)";
-                    document.getElementById("img-3").style.filter = "grayscale(1)";
-                    }else{
-                        if($("#img-3:hover").length != 0){
-                        document.getElementById("img-1").style.filter = "grayscale(1)";
-                        document.getElementById("img-2").style.filter = "grayscale(1)";
-                        document.getElementById("img-3").style.filter = "grayscale(0)";
-                        }else{
-                            document.getElementById("img-1").style.filter = "grayscale(0)";
-                            document.getElementById("img-2").style.filter = "grayscale(0)";
-                            document.getElementById("img-3").style.filter = "grayscale(0)";
-                        }
-                    }
-                }
-            });
-        });
-        
-    </script>
 </body>
 </html>
