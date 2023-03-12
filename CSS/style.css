@@ -189,6 +189,7 @@ body {
   color: rgb(255, 255, 255);
   margin-bottom: -15px;
   animation-delay: 3s;
+  animation-delay: 2.2s;
 }
 @media screen and (max-width: 820px) {
   .container .title-container h1#title-1 {
@@ -206,6 +207,7 @@ body {
 @media screen and (max-width: 820px) {
   .container .title-container h1#title-2 {
     -webkit-text-stroke: 1px rgb(255, 255, 255);
+    animation-delay: 2.7s;
   }
 }
 .container .img-container {
@@ -294,10 +296,6 @@ body {
     position: fixed;
     width: 100%;
     background-color: rgb(11, 11, 11);
-    animation-name: navbarColor, title-anim;
-    animation-duration: 0.1s, 1.5s;
-    animation-delay: 5.5s, 0.2s;
-    animation-fill-mode: forwards;
     top: 0;
   }
   .nav-container-desktop .nav-left {
