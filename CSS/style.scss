@@ -18,6 +18,23 @@
     'opsz' 48
 }
 
+:root {
+    --darkColor: rgb(11, 11, 11);
+    --lightColor: rgb(255, 255, 255);
+    --lightSecondaryColor : rgb(117, 171, 212);
+    transition: all .5s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
 //var
 $semiboldFont: "kanit-semibold";
 $boldFont: "kanit-bold";
@@ -33,7 +50,7 @@ $breakpoint: 820px;
 //animations
 @keyframes navbarColor {
     0% {background-color: transparent;}
-    100% {background-color: $darkColor;}
+    100% {background-color: var(--darkColor);}
 }
 @keyframes navbar-anim {
     0% {opacity: 0%; transform: translateY(-80px);}
@@ -64,15 +81,7 @@ $breakpoint: 820px;
     100% {opacity: 100%; transform: translateY(0);}
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none; 
-}
+
 
 ul {
     list-style: none;
@@ -99,13 +108,13 @@ ul {
 body {
     height: 100vh;
     width: 100%;
-    background-color: $darkColor;
+    background-color: var(--darkColor);
     overflow-y: overlay;
     overflow-x: hidden;
 }
 
 .title-container h1 {
-    color: $darkColor;
+    color: var(--darkColor);
     opacity: 0%; 
     transform: translateY(-50px);
 }
@@ -120,7 +129,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $lightColor;
+    color: var(--lightColor);
     height: $heightNavbar;
     padding: 15px 30px;
     animation-name: title-anim;
@@ -142,7 +151,7 @@ body {
     }
 
     ul {
-        color: $lightColor;
+        color: var(--lightColor);
         font-family: $lightFont;
         font-size: 15px;
         text-transform: uppercase;
@@ -164,7 +173,7 @@ body {
             cursor: pointer;
 
             &.l-nav:hover {
-                color: $lightSecondaryColor;
+                color: var(--lightSecondaryColor);
             }
         }
     }
@@ -200,7 +209,7 @@ body {
             animation-fill-mode: forwards;
 
             &#title-1 {
-                color: $lightColor;
+                color: var(--lightColor);
                 margin-bottom: -15px;
                 animation-delay: 3s;
 
@@ -212,14 +221,14 @@ body {
 
             &#title-2 {
                 color: transparent;
-                -webkit-text-stroke: 4px $lightColor;
+                -webkit-text-stroke: 4px var(--lightColor);
                 animation-delay: 4s;
                 animation-name: title-2-anim;
                 transform: translateY(65px);
                 animation-duration: 2s;
 
                 @media screen and (max-width: $breakpoint) {
-                    -webkit-text-stroke: 1px $lightColor;
+                    -webkit-text-stroke: 1px var(--lightColor);
                     animation-delay: 2.7s;
                 }
             }
@@ -320,7 +329,7 @@ body {
         z-index: 100000;
         position: fixed;
         width: 100%;
-        background-color: $darkColor;
+        background-color: var(--darkColor);
         top: 0;
 
         .nav-left {
@@ -341,7 +350,7 @@ body {
             top: $heightNavbar;
             left: 0;
             width: 100%;
-            background-color: $darkColor;
+            background-color: var(--darkColor);
             transform: translateX(-100vw);
             padding: 20px ;
             display: block;
@@ -369,7 +378,7 @@ body {
                     span {
                         transition: all .5s;
                         &:hover {
-                            color: $lightSecondaryColor;
+                            color: var(--lightSecondaryColor);
                         }
                     }
 
@@ -425,7 +434,7 @@ body {
                 height: 3px;
                 width: 100%;
                 border-radius: 10px;
-                background: $lightColor;
+                background: var(--lightColor);
 
                 &.line1 {
                     transform-origin: 0% 0%;
