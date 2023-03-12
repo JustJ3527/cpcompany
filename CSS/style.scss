@@ -186,6 +186,7 @@ body {
                 @media screen and (max-width: $breakpoint){
                     margin-bottom: 0;
                 }
+                animation-delay: 2.2s;
             }
 
             &#title-2 {
@@ -198,6 +199,7 @@ body {
 
                 @media screen and (max-width: $breakpoint) {
                     -webkit-text-stroke: 1px $lightColor;
+                    animation-delay: 2.7s;
                 }
             }
         }
@@ -297,10 +299,6 @@ body {
         position: fixed;
         width: 100%;
         background-color: $darkColor;
-        animation-name: navbarColor, title-anim;
-        animation-duration: 0.1s, 1.5s;
-        animation-delay: 5.5s, .2s;        
-        animation-fill-mode: forwards;
         top: 0;
 
         .nav-left {
