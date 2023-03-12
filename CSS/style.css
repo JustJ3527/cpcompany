@@ -339,7 +339,10 @@ body {
     width: 100%;
   }
   .nav-container-desktop .menu {
-    transition: all 0.5s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: transform;
     position: absolute;
     height: calc(100vh - 65px);
     top: 65px;
