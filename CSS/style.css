@@ -11,6 +11,14 @@
   font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 48;
 }
 
+@keyframes navbarColor {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgb(11, 11, 11);
+  }
+}
 @keyframes navbar-anim {
   0% {
     opacity: 0%;
@@ -98,7 +106,11 @@ body {
   transform: translateY(-50px);
 }
 
-.nav-container {
+.nav-container-mobile {
+  display: none;
+}
+
+.nav-container-desktop {
   opacity: 0%;
   transform: translateY(-80px);
   display: flex;
@@ -113,7 +125,16 @@ body {
   animation-fill-mode: forwards;
   z-index: 1000;
 }
-.nav-container ul {
+.nav-container-desktop .menu {
+  display: none;
+}
+.nav-container-desktop input {
+  display: none;
+}
+.nav-container-desktop .hamburger-lines {
+  display: none;
+}
+.nav-container-desktop ul {
   color: rgb(255, 255, 255);
   font-family: "Kanit", sans-serif;
   font-size: 15px;
@@ -122,24 +143,24 @@ body {
   display: flex;
   width: 25%;
 }
-.nav-container ul.nav-left {
+.nav-container-desktop ul.nav-left {
   flex-direction: row;
 }
-.nav-container ul.nav-right {
+.nav-container-desktop ul.nav-right {
   flex-direction: row-reverse;
 }
-.nav-container ul li {
+.nav-container-desktop ul li {
   margin: 0 5px;
   transition: all 0.5s;
   cursor: pointer;
 }
-.nav-container ul li:hover {
+.nav-container-desktop ul li:hover {
   opacity: 0.8;
 }
-.nav-container .nav-logo {
+.nav-container-desktop .nav-logo {
   height: 100%;
 }
-.nav-container .logo {
+.nav-container-desktop .logo {
   height: 100%;
 }
 
@@ -256,5 +277,137 @@ body {
 @media screen and (max-width: 820px) {
   .container .img-container .img-container-2 .img#img-3 {
     background-position-y: 20%;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  body {
+    height: auto;
+  }
+  input {
+    display: block;
+  }
+  .nav-container-desktop {
+    height: 65px;
+    flex-direction: row;
+    z-index: 100000;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(11, 11, 11);
+    animation-name: navbarColor, title-anim;
+    animation-duration: 0.1s, 1.5s;
+    animation-delay: 5.5s, 0.2s;
+    animation-fill-mode: forwards;
+    top: 0;
+  }
+  .nav-container-desktop .nav-left {
+    display: none;
+  }
+  .nav-container-desktop .nav-right {
+    display: none;
+  }
+  .nav-container-desktop ul {
+    width: 100%;
+  }
+  .nav-container-desktop .menu {
+    transition: all 0.5s;
+    position: absolute;
+    height: calc(100vh - 65px);
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(11, 11, 11);
+    transform: translateX(-100vw);
+    padding: 20px;
+    display: block;
+  }
+  .nav-container-desktop .menu ul {
+    transition: all 0.25s ease-in;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .nav-container-desktop .menu ul li {
+    text-align: center;
+    font-size: 25px;
+    margin: 10px 5px;
+  }
+  .nav-container-desktop .menu ul li.icon span {
+    font-size: 30px;
+    margin: 0 10px 0 0;
+  }
+  .nav-container-desktop .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 17px;
+    right: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .nav-container-desktop input[type=checkbox]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+  }
+  .nav-container-desktop input[type=checkbox]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+  .nav-container-desktop input[type=checkbox]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+  }
+  .nav-container-desktop input[type=checkbox]:checked ~ .menu {
+    transform: translateX(0);
+  }
+  .nav-container-desktop input[type=checkbox]:checked ~ body {
+    overflow: hidden;
+  }
+  .nav-container-desktop .hamburger-lines {
+    display: flex;
+    position: absolute;
+    height: 26px;
+    width: 32px;
+    top: 17px;
+    right: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav-container-desktop .hamburger-lines .line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+  }
+  .nav-container-desktop .hamburger-lines .line.line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+  .nav-container-desktop .hamburger-lines .line.line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+  .nav-container-desktop .hamburger-lines .line.line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+  .container .title-container {
+    padding: 5px 15px;
+    margin: 0;
+  }
+  .container .title-container h1 {
+    font-size: 5vw;
+  }
+  .container .img-container .img-container-2 .img {
+    height: calc(100vh - 90px - 10vw + 10px);
+  }
+  .container .nav-container-mobile {
+    display: block;
+  }
+  .container {
+    height: auto;
+    margin-top: 65px;
   }
 }/*# sourceMappingURL=style.css.map */
