@@ -30,6 +30,10 @@ $fullscreen: calc(100vh - $heightNavbar);
 $breakpoint: 820px;
 
 //animations
+@keyframes navbarColor {
+    0% {background-color: transparent;}
+    100% {background-color: $darkColor;}
+}
 @keyframes navbar-anim {
     0% {opacity: 0%; transform: translateY(-80px);}
     100% {opacity: 100%; transform: translateY(0);}
@@ -85,7 +89,11 @@ body {
     transform: translateY(-50px);
 }
 
-.nav-container {
+.nav-container-mobile {
+    display: none;
+}
+
+.nav-container-desktop {
     opacity: 0%; 
     transform: translateY(-80px);
     display: flex;
@@ -99,6 +107,18 @@ body {
     animation-delay: .2s;
     animation-fill-mode: forwards;
     z-index: 1000;
+
+    .menu {
+        display: none;
+    }
+
+    input {
+        display: none;
+    }
+
+    .hamburger-lines {
+        display: none;
+    }
 
     ul {
         color: $lightColor;
@@ -255,5 +275,169 @@ body {
                     }
             }
         }
+    }
+}
+
+
+
+@media screen and (max-width: $breakpoint){
+    body {
+        height: auto;
+    }
+
+    input {
+        display: block;
+    }
+
+    .nav-container-desktop {
+        $heightNavbar : 65px;
+        height: $heightNavbar;
+        flex-direction: row;
+        z-index: 100000;
+        position: fixed;
+        width: 100%;
+        background-color: $darkColor;
+        animation-name: navbarColor, title-anim;
+        animation-duration: 0.1s, 1.5s;
+        animation-delay: 5.5s, .2s;        
+        animation-fill-mode: forwards;
+        top: 0;
+
+        .nav-left {
+            display: none;
+        }
+        .nav-right {
+            display: none;
+        }
+
+        ul {
+            width: 100%;
+        }
+
+        .menu {
+            transition: all .5s;
+            position: absolute;
+            height: calc(100vh - $heightNavbar);
+            top: $heightNavbar;
+            left: 0;
+            width: 100%;
+            background-color: $darkColor;
+            transform: translateX(-100vw);
+            padding: 20px ;
+            display: block;
+
+            ul {
+                transition: all 0.25s ease-in;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+                li {
+                    text-align: center;
+                    font-size: 25px;
+                    margin: 10px 5px;
+
+                    &.icon {
+                        span {
+                           font-size: 30px; 
+                           margin: 0 10px 0 0;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+        .checkbox {
+            position: absolute;
+            display: block;
+            height: 32px;
+            width: 32px;
+            top: 17px;
+            right: 20px;
+            z-index: 5;
+            opacity: 0;
+            cursor: pointer;
+        }
+          
+        input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+        transform: rotate(45deg);
+        }
+        
+        input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+        transform: scaleY(0);
+        }
+        
+        input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+        transform: rotate(-45deg);
+        }
+
+        input[type="checkbox"]:checked ~ .menu {
+            transform: translateX(0);
+        }
+        input[type="checkbox"]:checked ~ body {
+            overflow: hidden;
+        }
+
+        .hamburger-lines {
+            display: flex;
+            position: absolute;
+            height: 26px;
+            width: 32px;
+            top: 17px;
+            right: 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .line {
+                display: block;
+                height: 3px;
+                width: 100%;
+                border-radius: 10px;
+                background: $lightColor;
+
+                &.line1 {
+                    transform-origin: 0% 0%;
+                    transition: transform 0.4s ease-in-out;
+                }
+                &.line2 {
+                    transition: transform 0.2s ease-in-out;
+                }
+                &.line3 {
+                    transform-origin: 0% 100%;
+                    transition: transform 0.4s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .container {
+
+        .title-container {
+            padding: 5px 15px;
+            margin: 0;
+
+            h1 {
+                font-size: 5vw;
+            }
+        }
+
+        .img-container {
+            .img-container-2{
+                .img {
+                    height: calc(100vh - $heightNavbar - (2 * 5vw) + 10px);
+                }
+            }
+        }
+        .nav-container-mobile {
+            display: block;
+        }
+    }
+    .container {
+        height: auto;
+        margin-top: 65px;
     }
 }
