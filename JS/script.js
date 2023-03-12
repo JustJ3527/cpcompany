@@ -48,17 +48,35 @@ function darkMode() {
     document.documentElement.style.setProperty('--lightSecondaryColor', 'rgb(117, 171, 212)');
 }
 
-var mode = 0; //dark
-var logo = document.getElementById("logo");
-
-function changeMode() {
-    if(mode == 0){
+// Appel à la fonction "changeMode()" au chargement de la page
+window.addEventListener("load", function() {
+    // Récupérer la valeur du mode enregistrée dans le localStorage
+    var mode = localStorage.getItem("mode");
+    
+    // Vérifier si la valeur du mode existe et appeler la fonction en conséquence
+    if (mode == "light") {
         lightMode();
-        document.getElementById("logo").src="./assets/logo_black.png";
-        mode = 1;
-    }else if(mode == 1){
+        document.getElementById("logo").src = "./assets/logo_black.png";
+    } else {
         darkMode();
-        document.getElementById("logo").src="./assets/logo.png";
-        mode = 0;
+        document.getElementById("logo").src = "./assets/logo.png";
+    }
+});
+
+// Définition de la fonction "changeMode()"
+function changeMode() {
+    // Récupérer la valeur du mode enregistrée dans le localStorage
+    var mode = localStorage.getItem("mode");
+
+    if (mode == "dark" || !mode || mode.trim() === "") {
+        lightMode();
+        document.getElementById("logo").src = "./assets/logo_black.png";
+        mode = "light";
+        localStorage.setItem("mode", mode);
+    } else if (mode == "light") {
+        darkMode();
+        document.getElementById("logo").src = "./assets/logo.png";
+        mode = "dark";
+        localStorage.setItem("mode", mode);
     }
 }
