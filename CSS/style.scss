@@ -265,7 +265,7 @@ body {
 
                     &#img-1 {
                         background-image: url(..//assets/1.jpg);
-                        background-position-y: 0;
+                        background-position-y: 10%;
                         transform: translateX(-1000px);
                         animation-name: img-1-anim;
                         animation-duration: 2.5s;
@@ -276,6 +276,7 @@ body {
                     &#img-2 {
                         width: 85%;
                         background-image: url(..//assets/2.jpeg);
+                        background-position-y: 0;
                         transform: translateY(1000px);
                         animation-name: img-2-anim;
                         animation-duration: 2.5s;
