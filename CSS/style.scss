@@ -24,6 +24,7 @@ $boldFont: "kanit-bold";
 $lightFont: "Kanit", sans-serif;
 $darkColor: rgb(11, 11, 11);
 $lightColor: rgb(255, 255, 255);
+$lightSecondaryColor : rgb(117 171 212);
 $imgSize: calc(100%/3 - 3%); 
 $heightNavbar : 90px;
 $fullscreen: calc(100vh - $heightNavbar);
@@ -162,8 +163,8 @@ body {
             transition: all .5s;
             cursor: pointer;
 
-            &:hover {
-                opacity: 0.8;
+            &.l-nav:hover {
+                color: $lightSecondaryColor;
             }
         }
     }
@@ -263,7 +264,7 @@ body {
                 }
 
                     &#img-1 {
-                        background-image: url(..//assets/1.jpeg);
+                        background-image: url(..//assets/1.jpg);
                         background-position-y: 0;
                         transform: translateX(-1000px);
                         animation-name: img-1-anim;
@@ -283,8 +284,8 @@ body {
                     }
 
                     &#img-3 {
-                        background-image: url(..//assets/3.jpeg);
-                        background-position-y: 35%;
+                        background-image: url(..//assets/3.jpg);
+                        background-position-y: 10%;
                         transform: translateX(1000px);
                         animation-name: img-3-anim;
                         animation-duration: 2.5s;
@@ -355,6 +356,7 @@ body {
                     text-align: center;
                     font-size: 25px;
                     margin: 10px 5px;
+                    transition: all .5s;
 
                     &.icon {
                         span {
@@ -363,6 +365,13 @@ body {
                         }
                         
                     }
+                    span {
+                        transition: all .5s;
+                        &:hover {
+                            color: $lightSecondaryColor;
+                        }
+                    }
+
                 }
             }
         }
@@ -449,9 +458,6 @@ body {
                     height: calc(100vh - $heightNavbar - (2 * 5vw) + 10px);
                 }
             }
-        }
-        .nav-container-mobile {
-            display: block;
         }
     }
     .container {
