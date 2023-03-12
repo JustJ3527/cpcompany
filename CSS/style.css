@@ -177,8 +177,8 @@ body {
   transition: all 0.5s;
   cursor: pointer;
 }
-.nav-container-desktop ul li:hover {
-  opacity: 0.8;
+.nav-container-desktop ul li.l-nav:hover {
+  color: rgb(117, 171, 212);
 }
 .nav-container-desktop .nav-logo {
   height: 100%;
@@ -273,7 +273,7 @@ body {
   }
 }
 .container .img-container .img-container-2 .img#img-1 {
-  background-image: url(..//assets/1.jpeg);
+  background-image: url(..//assets/1.jpg);
   background-position-y: 0;
   transform: translateX(-1000px);
   animation-name: img-1-anim;
@@ -291,8 +291,8 @@ body {
   animation-fill-mode: forwards;
 }
 .container .img-container .img-container-2 .img#img-3 {
-  background-image: url(..//assets/3.jpeg);
-  background-position-y: 35%;
+  background-image: url(..//assets/3.jpg);
+  background-position-y: 10%;
   transform: translateX(1000px);
   animation-name: img-3-anim;
   animation-duration: 2.5s;
@@ -353,10 +353,17 @@ body {
     text-align: center;
     font-size: 25px;
     margin: 10px 5px;
+    transition: all 0.5s;
   }
   .nav-container-desktop .menu ul li.icon span {
     font-size: 30px;
     margin: 0 10px 0 0;
+  }
+  .nav-container-desktop .menu ul li span {
+    transition: all 0.5s;
+  }
+  .nav-container-desktop .menu ul li span:hover {
+    color: rgb(117, 171, 212);
   }
   .nav-container-desktop .checkbox {
     position: absolute;
@@ -423,9 +430,6 @@ body {
   }
   .container .img-container .img-container-2 .img {
     height: calc(100vh - 90px - 10vw + 10px);
-  }
-  .container .nav-container-mobile {
-    display: block;
   }
   .container {
     height: auto;
